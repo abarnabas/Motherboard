@@ -144,12 +144,12 @@ def users_add():
     else:
         form = request.form
         user = {
-        'firstName': form['firstName'],
-        'lastName': form['lastName'],
-        'username': form['username'],
-        'city': form['city'],
-        'state': form['state'],
-        'zip': form['zipCode']
+        'validationCustom01': form['validationCustom01'],
+        'validationCustom02': form['validationCustom02'],
+        'validationCustomUsername': form['validationCustomUsername'],
+        'validationCustom03': form['validationCustom03'],
+        'validationCustom04': form['validationCustom04'],
+        'validationCustom05': form['validationCustom05']
         }
         users = mongo.db['users']
         users.insert_one(user)
