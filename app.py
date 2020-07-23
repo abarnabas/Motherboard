@@ -62,6 +62,7 @@ def events_add():
         event = {
         'name':form['eventName'],
         'date':form['eventDate'],
+        'user':form['eventUser']
         }
         events = mongo.db['events-list']
         events.insert(event)
@@ -110,5 +111,33 @@ def events_cal():
     'dec_events':dec_events
     }
     return render_template('familycalendar.html', data=data)
+
+@app.route('/users')
+def users_view():
+    data = {
+    'user':mongo.db['user'].find({})
+    }
+    return render_template('userView.html', data=data)
+
+@app.route('/users/add', methods=['GET','POST'])
+def users_add():
+    if request.method == 'GET':
+        data = {
+        }
+        return render_template('userAdd.html', data=data)
+    else:
+        form = request.form
+        user = {
+        'firstName': form['firstName'],
+        'lastName': form['lastName'],
+        'username': form['username'],
+        'city': form['city'],
+        'state': form['state'],
+        'zip': form['zipCode']
+        }
+        users = mongo.db['users']
+        users.insert_one(user)
+
+        return redirect(url_for('users'))
 
 
