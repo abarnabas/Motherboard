@@ -47,6 +47,22 @@ def index():
     }
     return render_template('index.html', data=data)
 
+@app.route('/view')
+def events_view():
+    #All July events
+    #events = mongo.db['events-list'].find({"date": {'$regex':"-07-"}}) 
+    #All Birthdays
+    # events = mongo.db['events-list'].find({
+    #     '$or': [
+    #         {"name": {'$regex':"Birthday"}},
+    #         {"name": {'$regex':"birthday"}}
+    #     ]
+    # })
+    events = mongo.db['events-list'].find({}) 
+    data = {
+    'events':events,
+    }
+    return render_template('eventsView.html', data=data)
 
 @app.route('/add', methods=['GET','POST'])
 def events_add():
@@ -66,7 +82,7 @@ def events_add():
         events = mongo.db['events-list']
         events.insert(event)
 
-        return redirect(url_for('events_cal'))
+        return redirect(url_for('events_view'))
 
 @app.route('/eventscal')
 def events_cal():
@@ -109,6 +125,6 @@ def events_cal():
     'nov_events':nov_events,
     'dec_events':dec_events
     }
-    return render_template('familycalendar.html', data=data)
+    return render_template('eventsCalendar.html', data=data)
 
 
