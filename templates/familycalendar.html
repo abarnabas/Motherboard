@@ -1,0 +1,201 @@
+{% extends 'base.html'%}
+
+{% block title%}{% endblock %}
+
+{% block content%}
+<div class="container">
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> January </h1>
+  <div class="row">
+    {% for event in data.jan_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+           <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> February </h1>
+  <div class="row">
+    {% for event in data.feb_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> March </h1>
+  <div class="row">
+    {% for event in data.mar_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> April </h1>
+  <div class="row">
+    {% for event in data.apr_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> May </h1>
+  <div class="row">
+    {% for event in data.may_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> June </h1>
+  <div class="row">
+    {% for event in data.jun_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> July </h1>
+  <div class="row">
+    {% for event in data.jul_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> August </h1>
+  <div class="row">
+    {% for event in data.aug_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> September </h1>
+  <div class="row">
+    {% for event in data.sep_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> October </h1>
+  <div class="row">
+    {% for event in data.oct_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> November </h1>
+  <div class="row">
+    {% for event in data.nov_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<hr> </hr>
+<h1 style="font-family: 'Lexend Zetta', sans-serif;"> December </h1>
+  <div class="row">
+    {% for event in data.dec_events %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card">
+            <div class="card-header">
+            {{event.date}}
+            </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+</div>
+
+{% endblock %}
