@@ -1,0 +1,42 @@
+h1 {
+    font-family: 'Lexend Zetta', sans-serif;
+    text-align: center 
+}
+.card-body {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-header {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    background-color: black;
+    color: white
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.display-4 {
+    color: white;
+    text-align: center;
+}
+.lead {
+    color: white;
+    text-align: center;
+}
+
+.form-group col-6 {
+    color: black;
+    text-align: center;
+}
+
+.form-group col-12 {
+    color: black;
+    text-align: center;
+}
