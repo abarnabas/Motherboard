@@ -1,18 +1,18 @@
 h1 {
-    font-family: 'Lexend Zetta', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center 
 }
 .card-body {
-    font-family: 'Lexend Deca', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     text-align: center;
 }
 
 .card-header {
-    font-family: 'Lexend Deca', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     text-align: center;
-    background-color: black;
+    background-color: #65E2CD;
     color: white
 }
 
@@ -32,11 +32,11 @@ hr {
 }
 
 .form-group col-6 {
-    color: black;
+    color:#65E2CD;
     text-align: center;
 }
 
 .form-group col-12 {
-    color: black;
+    color: #65E2CD;
     text-align: center;
 }
