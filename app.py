@@ -104,12 +104,12 @@ def events_cal():
 def events_remove():
     if request.method == 'GET':
         data = {}
-        return render_template('eventRemove.html', data = data)
+        return render_template('eventRemove.html', data=data)
     else:
+        events = mongo.db['events-list']
         form = request.form
         eventName = request.form['eventName']
         eventDate = request.form['eventDate']
-        events = mongo.db['events-list']
         # events.pop(form['eventName'])
         # del events['eventName']
         # mycol.delete_one(myquery)
@@ -118,11 +118,12 @@ def events_remove():
         events.delete_one(eventName_dict)
         events.delete_one(eventDate_dict)
         events = mongo.db['events-list'].find({})
-        return render_template('familycalendar.html', data=data)
+        return redirect(url_for('events_cal'))
+
 @app.route('/users')
 def users_view():
     data = {
-    'user':mongo.db['user'].find({})
+    'users':mongo.db['users'].find({})
     }
     return render_template('userView.html', data=data)
 @app.route('/users/add', methods=['GET','POST'])
