@@ -10,13 +10,14 @@ h3{
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     text-align: center;
+    color:#CEC2FF;
 }
 .card-header {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     text-align: center;
     background-color: #65E2CD;
-    color: white
+    color: white;
 }
 hr {
   margin-top: 1rem;
@@ -52,4 +53,14 @@ hr {
 }
 .btn btn-primary{
     background-color: #CEC2FF !important;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
