@@ -41,6 +41,7 @@ def events_view():
     'events':events,
     }
     return render_template('eventsView.html', data=data)
+
 @app.route('/add', methods=['GET','POST'])
 def events_add():
     if request.method == 'GET':
@@ -58,6 +59,7 @@ def events_add():
         events = mongo.db['events-list']
         events.insert(event)
         return redirect(url_for('events_view'))
+    
 @app.route('/eventscal')
 def events_cal():
     #All Jan events
@@ -100,6 +102,7 @@ def events_cal():
     'dec_events':dec_events
     }
     return render_template('familycalendar.html', data=data)
+    
 @app.route('/remove', methods=['GET','POST'])
 def events_remove():
     if request.method == 'GET':
