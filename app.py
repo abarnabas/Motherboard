@@ -49,15 +49,6 @@ def index():
 
 @app.route('/view')
 def events_view():
-    #All July events
-    #events = mongo.db['events-list'].find({"date": {'$regex':"-07-"}}) 
-    #All Birthdays
-    # events = mongo.db['events-list'].find({
-    #     '$or': [
-    #         {"name": {'$regex':"Birthday"}},
-    #         {"name": {'$regex':"birthday"}}
-    #     ]
-    # })
     events = mongo.db['events-list'].find({}) 
     data = {
     'events':events,
@@ -126,7 +117,27 @@ def events_cal():
     'nov_events':nov_events,
     'dec_events':dec_events
     }
-    return render_template('eventsCalendar.html', data=data)
+    return render_template('familycalendar.html', data=data)
+
+@app.route('/remove', methods=['GET','POST'])
+def events_remove():
+    if request.method == 'GET':
+        data = {}
+        return render_template('eventRemove.html', data = data)
+    else:
+        form = request.form
+        eventName = request.form['eventName']
+        eventDate = request.form['eventDate']
+        events = mongo.db['events-list']
+        # events.pop(form['eventName'])
+        # del events['eventName']
+        # mycol.delete_one(myquery)
+        eventName_dict = {'name':eventName}
+        eventDate_dict = {'date':eventDate}
+        events.delete_one(eventName_dict)
+        events.delete_one(eventDate_dict)
+        events = mongo.db['events-list'].find({})
+        return render_template('familycalendar.html', data=data)
 
 @app.route('/users')
 def users_view():
@@ -144,16 +155,14 @@ def users_add():
     else:
         form = request.form
         user = {
-        'validationCustom01': form['validationCustom01'],
-        'validationCustom02': form['validationCustom02'],
-        'validationCustomUsername': form['validationCustomUsername'],
-        'validationCustom03': form['validationCustom03'],
-        'validationCustom04': form['validationCustom04'],
-        'validationCustom05': form['validationCustom05']
+            "userName": form["userName"],
+            "userAge": form["userAge"],
+            "userPhone": form["userPhone"],
+            "userWork": form["userWork"],
+            "userHobbies": form["userHobbies"]
+            
         }
         users = mongo.db['users']
         users.insert_one(user)
 
-        return redirect(url_for('users'))
-
-
+        return redirect(url_for('users_view'))
