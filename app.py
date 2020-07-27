@@ -7,38 +7,26 @@ from flask import url_for
 from flask import redirect
 from flask import request
 from flask_pymongo import PyMongo
-
 import os
 from dotenv import load_dotenv
 load_dotenv()
-
 import datetime
-
-
-
 # -- Initialization section --
 app = Flask(__name__)
 app.jinja_env.globals['current_time'] = datetime.datetime.now()
-
-
 events = [
         {"name":"First Day of Classes", "date":"2020-08-21"},
         {"name":"Winter Break", "date":"2020-12-20"},
         {"name":"Finals Begin", "date":"2020-12-01"}
     ]
-
 MONGO_DBNAME = os.getenv("MONGO_DBNAME")
 MONGO_DB_USERNAME = os.getenv("MONGO_DB_USERNAME")
 MONGO_DB_PASSWORD = os.getenv("MONGO_DB_PASSWORD")
-
 app.config['MONGO_DBNAME'] = MONGO_DBNAME
 app.config['MONGO_URI'] = f'mongodb+srv://{MONGO_DB_USERNAME}:{MONGO_DB_PASSWORD}@cluster0.udw0r.mongodb.net/{MONGO_DBNAME}?retryWrites=true&w=majority'
-
 mongo = PyMongo(app)
-
 # -- Routes section --
 # INDEX
-
 @app.route('/')
 @app.route('/index')
 def index():
@@ -46,7 +34,6 @@ def index():
     'events':events,
     }
     return render_template('index.html', data=data)
-
 @app.route('/view')
 def events_view():
     events = mongo.db['events-list'].find({}) 
@@ -54,18 +41,15 @@ def events_view():
     'events':events,
     }
     return render_template('eventsView.html', data=data)
-
 @app.route('/add', methods=['GET','POST'])
 def events_add():
     if request.method == 'GET':
         data = {
-
         }
         return render_template('eventsAdd.html', data=data)
     else:
         ## Add event to events_list
         form = request.form
-
         event = {
         'name':form['eventName'],
         'date':form['eventDate'],
@@ -73,9 +57,7 @@ def events_add():
         }
         events = mongo.db['events-list']
         events.insert(event)
-
         return redirect(url_for('events_view'))
-
 @app.route('/eventscal')
 def events_cal():
     #All Jan events
@@ -118,7 +100,6 @@ def events_cal():
     'dec_events':dec_events
     }
     return render_template('familycalendar.html', data=data)
-
 @app.route('/remove', methods=['GET','POST'])
 def events_remove():
     if request.method == 'GET':
@@ -137,7 +118,6 @@ def events_remove():
         events.delete_one(eventName_dict)
         events.delete_one(eventDate_dict)
         events = mongo.db['events-list'].find({})
-        #return render_template('familycalendar.html', data=data)
         return redirect(url_for('events_cal'))
 
 @app.route('/users')
@@ -146,7 +126,6 @@ def users_view():
     'users':mongo.db['users'].find({})
     }
     return render_template('userView.html', data=data)
-
 @app.route('/users/add', methods=['GET','POST'])
 def users_add():
     if request.method == 'GET':
@@ -165,5 +144,4 @@ def users_add():
         }
         users = mongo.db['users']
         users.insert_one(user)
-
         return redirect(url_for('users_view'))
