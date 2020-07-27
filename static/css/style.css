@@ -1,11 +1,18 @@
 h1 {
     font-family: 'Poppins', sans-serif;
-    text-align: center 
+    text-align: center;
+    color: #65E2CD;
 }
+
+h3{
+    color: #CEC2FF;
+}
+
 .card-body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     text-align: center;
+    color:#CEC2FF;
 }
 
 .card-header {
@@ -13,7 +20,7 @@ h1 {
     font-size: 15px;
     text-align: center;
     background-color: #65E2CD;
-    color: white
+    color: white;
 }
 
 hr {
@@ -51,4 +58,20 @@ hr {
 
 .container {
     color: white;
+}
+
+.btn btn-primary{
+    background-color: #CEC2FF !important;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
