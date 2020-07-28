@@ -37,14 +37,6 @@ def index():
     }
     return render_template('index.html', data=data)
 
-@app.route('/view')
-def events_view():
-    events = mongo.db['events-list'].find({}) 
-    data = {
-    'events':events,
-    }
-    return render_template('eventsView.html', data=data)
-
 @app.route('/add', methods=['GET','POST'])
 def events_add():
     if request.method == 'GET':
@@ -57,11 +49,12 @@ def events_add():
         event = {
         'name':form['eventName'],
         'date':form['eventDate'],
-        'user':form['eventUser']
+        'user':form['eventUser'],
+        'eventDescription': form['eventDescription']
         }
         events = mongo.db['events-list']
         events.insert(event)
-        return redirect(url_for('events_view'))
+        return redirect(url_for('events_cal'))
     
 @app.route('/eventscal')
 def events_cal():
@@ -205,7 +198,7 @@ def chores_complete():
             '_id':choreid
         }
         update = {
-            '$set': {'Completed':form['Completed']}
+            '$set': {'Completed':form.get('Completed',"")}
         }
         mongo.db['chores'].find_one_and_update(query, update)
         return redirect(url_for('chores_view'))
