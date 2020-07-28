@@ -11,6 +11,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 import datetime
+from bson.objectid import ObjectId
+
 # -- Initialization section --
 app = Flask(__name__)
 app.jinja_env.globals['current_time'] = datetime.datetime.now()
@@ -190,3 +192,34 @@ def chores_view():
     'miscell_chores': miscell_chores
     }
     return render_template('choresView.html', data=data)
+
+@app.route('/chores/complete', methods=['GET','POST'])
+def chores_complete():
+    if request.method == 'GET':
+        return redirect(url_for('chores_view'))
+    else:
+        form = request.form
+        choreid = form['choreid']
+        choreid = ObjectId(choreid) 
+        query = {
+            '_id':choreid
+        }
+        update = {
+            '$set': {'Completed':form['Completed']}
+        }
+        mongo.db['chores'].find_one_and_update(query, update)
+        return redirect(url_for('chores_view'))
+
+# @app.route('/photos')
+# def photos_view():
+#     data = {
+#         "photos": photos
+#     }
+#     return render_template('photoView.html',data=data)
+
+# @app.route('/messageboard')
+# def message_view():
+#     data = {
+#     'messages':mongo.db['messages'].find({})
+#     }
+#     return render_template('messageView.html')
