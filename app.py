@@ -34,6 +34,7 @@ def index():
     'events':events,
     }
     return render_template('index.html', data=data)
+
 @app.route('/view')
 def events_view():
     events = mongo.db['events-list'].find({}) 
@@ -129,6 +130,7 @@ def users_view():
     'users':mongo.db['users'].find({})
     }
     return render_template('userView.html', data=data)
+
 @app.route('/users/add', methods=['GET','POST'])
 def users_add():
     if request.method == 'GET':
@@ -143,8 +145,48 @@ def users_add():
             "userPhone": form["userPhone"],
             "userWork": form["userWork"],
             "userHobbies": form["userHobbies"]
-            
         }
         users = mongo.db['users']
         users.insert_one(user)
         return redirect(url_for('users_view'))
+
+@app.route('/chores/add', methods=['GET','POST'])
+def chores_add():
+    if request.method == 'GET':
+        data = {
+        }
+        return render_template('choreAdd.html', data=data)
+    else:
+        form = request.form
+        chore = {
+            "choreType": form["choreType"],
+            "choreName": form["choreName"],
+            "choreInputter": form["choreInputter"]
+            
+        }
+        chores = mongo.db['chores']
+        chores.insert_one(chore)
+        return redirect(url_for('chores_view'))
+
+@app.route('/chores')
+def chores_view():
+    #All Bedroom Chores
+    bedroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bedroom"}}).sort('choreType')
+    #All Kitchen Chores
+    kitchen_chores = mongo.db['chores'].find({"choreType": {'$regex':"Kitchen"}}).sort('choreType')
+    #All Bathroom Chores
+    bathroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bathroom"}}).sort('choreType')
+    #All Outside Chores
+    outside_chores = mongo.db['chores'].find({"choreType": {'$regex':"Outside"}}).sort('choreType')
+    #All Meal Chores
+    meal_chores = mongo.db['chores'].find({"choreType": {'$regex':"Meal"}}).sort('choreType')
+    #All Miscellaneous Chores
+    miscell_chores = mongo.db['chores'].find({"choreType": {'$regex':"Miscellaneous"}}).sort('choreType')
+    data = {
+    'bedroom_chores':bedroom_chores,
+    'kitchen_chores': kitchen_chores,
+    'outside_chores': outside_chores,
+    'meal_chores': meal_chores,
+    'miscell_chores': miscell_chores
+    }
+    return render_template('choresView.html', data=data)
