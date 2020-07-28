@@ -11,6 +11,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 import datetime
+from bson.objectid import ObjectId
+
 # -- Initialization section --
 app = Flask(__name__)
 app.jinja_env.globals['current_time'] = datetime.datetime.now()
@@ -35,14 +37,6 @@ def index():
     }
     return render_template('index.html', data=data)
 
-@app.route('/view')
-def events_view():
-    events = mongo.db['events-list'].find({}) 
-    data = {
-    'events':events,
-    }
-    return render_template('eventsView.html', data=data)
-
 @app.route('/add', methods=['GET','POST'])
 def events_add():
     if request.method == 'GET':
@@ -55,11 +49,12 @@ def events_add():
         event = {
         'name':form['eventName'],
         'date':form['eventDate'],
-        'user':form['eventUser']
+        'user':form['eventUser'],
+        'eventDescription': form['eventDescription']
         }
         events = mongo.db['events-list']
         events.insert(event)
-        return redirect(url_for('events_view'))
+        return redirect(url_for('events_cal'))
     
 @app.route('/eventscal')
 def events_cal():
@@ -191,6 +186,7 @@ def chores_view():
     }
     return render_template('choresView.html', data=data)
 
+<<<<<<< HEAD
 @app.route('/photos')
 def photos_view():
     photos=[""]
@@ -198,3 +194,35 @@ def photos_view():
         "photos": photos
     }
     return render_template('photoView.html',data=data)
+=======
+@app.route('/chores/complete', methods=['GET','POST'])
+def chores_complete():
+    if request.method == 'GET':
+        return redirect(url_for('chores_view'))
+    else:
+        form = request.form
+        choreid = form['choreid']
+        choreid = ObjectId(choreid) 
+        query = {
+            '_id':choreid
+        }
+        update = {
+            '$set': {'Completed':form.get('Completed',"")}
+        }
+        mongo.db['chores'].find_one_and_update(query, update)
+        return redirect(url_for('chores_view'))
+
+# @app.route('/photos')
+# def photos_view():
+#     data = {
+#         "photos": photos
+#     }
+#     return render_template('photoView.html',data=data)
+
+# @app.route('/messageboard')
+# def message_view():
+#     data = {
+#     'messages':mongo.db['messages'].find({})
+#     }
+#     return render_template('messageView.html')
+>>>>>>> c138db9ec41115c7053ee77d902117b7291b0637
