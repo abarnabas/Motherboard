@@ -24,6 +24,7 @@ MONGO_DB_USERNAME = os.getenv("MONGO_DB_USERNAME")
 MONGO_DB_PASSWORD = os.getenv("MONGO_DB_PASSWORD")
 app.config['MONGO_DBNAME'] = MONGO_DBNAME
 app.config['MONGO_URI'] = f'mongodb+srv://{MONGO_DB_USERNAME}:{MONGO_DB_PASSWORD}@cluster0.udw0r.mongodb.net/{MONGO_DBNAME}?retryWrites=true&w=majority'
+print(app.config["MONGO_URI"])
 mongo = PyMongo(app)
 # -- Routes section --
 # INDEX
@@ -128,6 +129,7 @@ def users_view():
     data = {
     'users':mongo.db['users'].find({})
     }
+    print(data)
     return render_template('userView.html', data=data)
 @app.route('/users/add', methods=['GET','POST'])
 def users_add():
