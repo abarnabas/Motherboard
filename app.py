@@ -190,3 +190,11 @@ def chores_view():
     'miscell_chores': miscell_chores
     }
     return render_template('choresView.html', data=data)
+
+@app.route('/photos')
+def photos_view():
+    photos=[""]
+    data = {
+        "photos": photos
+    }
+    return render_template('photoView.html',data=data)

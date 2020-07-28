@@ -3,14 +3,15 @@
 {% block title%}{% endblock %}
 <a href="{{url_for('events_cal')}}" class="btn btn-dark btn-lg btn-block">View Events</a>
 {% block content%}
-<div class="jumbotron jumbotron-fluid mx-auto pt-0" style="background-color: #65E2CD;">
+<div class="jumbotron mycustom-jumbotron mx-auto pt-0" style="background-color: #65E2CD;">
   <h1 class="display-4">MotherBoard</h1>
   <p class="lead">Welcome to your family's very own digital hub </p> 
+  <h6> MotherBoard is how modern families stay organized and connected. Sync calendars, assign chores, share photos, and more! </h6>
   <p class="lead">
   </p>
 </div>
 <div class="container">
-  <img src= "{{ url_for('static', filename='images/MotherBoard.jpg') }}" class="center" style="width:550px;height:550px;" >
+  <img src= "{{ url_for('static', filename='images/MotherBoard.jpg') }}" class="center" style="width:450px;height:450px;" >
 </div>
 ​
 {% endblock %}

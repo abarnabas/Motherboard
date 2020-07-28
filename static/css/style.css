@@ -7,6 +7,27 @@ h3{
     color: #CEC2FF;
 }
 
+h2{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #CEC2FF;
+}
+
+h6{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100px;
+    text-align: center;
+    color: white;
+}
+
+.galleryHeader{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #CEC2FF;
+    font-size: 20px;
+
+}
+
 .card-body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
@@ -65,4 +86,15 @@ hr {
   content: "";
   display: table;
   clear: both;
+}
+
+.input-mysize { 
+    width: 500px;
+    float: right;
+}
+
+.mycustom-jumbotron {
+  width: 100%;
+  max-height: 170px;
+  margin: 18 auto
 }
