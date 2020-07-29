@@ -214,9 +214,9 @@ def chores_complete():
         mongo.db['chores'].find_one_and_update(query, update)
         return redirect(url_for('chores_view'))
 
-@app.route(‘/messages’)
-def message_view():
-    data = {
-    ‘messages’:mongo.db[‘messages’].find({})
-    }
-    return render_template(‘messagesView.html’, data=data)
+#@app.route(‘/messages’)
+#def message_view():
+    #data = {
+    #‘messages’:mongo.db[‘messages’].find({})
+    #}
+    #return render_template(‘messagesView.html’, data=data)

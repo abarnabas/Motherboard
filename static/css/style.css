@@ -33,7 +33,7 @@ h6{
     font-size: 20px;
     font-weight: 1px;
     text-align: center;
-    color:white;
+    color:#CEC2FF;
 }
 .card-header {
     font-family: 'Poppins', sans-serif;
@@ -77,12 +77,15 @@ hr {
 
 .containerStripe{
     background-color: #CEC2FF;
+    color: white;
+    text-align: center;
     width: 100%;
-   min-height: 30px;
-   margin-bottom: 25px;
-   padding: 5px 0;
-   line-height: 30px;
-  justify-content: center;
+    min-height: 30px;
+    margin-bottom: 25px;
+    padding: 5px 0;
+    line-height: 30px;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn btn-primary{
