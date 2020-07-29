@@ -125,6 +125,7 @@ def users_view():
     data = {
     'users':mongo.db['users'].find({})
     }
+    print(data)
     return render_template('userView.html', data=data)
 
 @app.route('/users/add', methods=['GET','POST'])
