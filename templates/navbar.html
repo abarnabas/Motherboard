@@ -54,6 +54,17 @@
 
 				</div>
 			</li>
+        <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-shower" aria-hidden="true"></i> Messageboard
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{url_for('message_view')}}">View Messageboard</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{{url_for('message_add')}}">Add Message</a>
+				</div>
+			</li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2 font-italic" type="search" placeholder="Search events, tasks, albums, etc..." aria-label="Search" style= "width: 300px">
