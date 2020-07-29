@@ -219,4 +219,21 @@ def message_view():
     data = {
     'messages':mongo.db['messages'].find({})
     }
-    return render_template('messagesView.html', data=data)
+    return render_template('messageView.html', data=data)
+
+
+@app.route('/messages/add', methods=['GET','POST'])
+def message_add():
+    if request.method == 'GET':
+        data = {
+        }
+        return render_template('messageAdd.html', data=data)
+    else:
+        form = request.form
+        message = {
+            "userName": form["userName"],
+            "message": form["message"],
+        }
+        messages = mongo.db['message']
+        messages.insert_one(message)
+        return redirect(url_for('message_view'))
