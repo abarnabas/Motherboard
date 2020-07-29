@@ -4,14 +4,47 @@
 <a href="{{url_for('events_cal')}}" class="btn btn-dark btn-lg btn-block">View Events</a>
 {% block content%}
 <div class="jumbotron mycustom-jumbotron mx-auto pt-0" style="background-color: #65E2CD;">
+  <img src= "{{ url_for('static', filename='images/MotherBoardNEW.jpg') }}" class="center" style="width:70px;height:70px;" >
   <h1 class="display-4">MotherBoard</h1>
   <p class="lead">Welcome to your family's very own digital hub </p> 
-  <h6> MotherBoard is how modern families stay organized and connected. Sync calendars, assign chores, share photos, and more! </h6>
   <p class="lead">
   </p>
 </div>
-<div class="container">
-  <img src= "{{ url_for('static', filename='images/MotherBoard.jpg') }}" class="center" style="width:450px;height:450px;" >
+<div class="containerStripe" style= "max-height:80px">
+  <h6> 
+      MotherBoard is how modern families stay organized and connected. Sync calendars, assign chores, share photos, and more! 
+  </h6>
 </div>
-​
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+<div class="card" style="width: 20rem; background-color: #FAF0F2";>
+  <img src="https://cf.ltkcdn.net/family/images/orig/200821-2121x1414-family.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title" style="color: #65E2CD; font-size: 30px">GET STARTED</h5>
+    <p class="card-text">Create and join your family's network today by setting up user profiles.</p>
+    <a href="{{url_for('users_add')}}" class="btn btn-warning">Sign Up</a>
+  </div>
+</div>
+</div>
+​<div class="col-4">
+<div class="card" style="width: 20rem; background-color: #FAF0F2">
+  <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1948&q=80" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title" style="color: #65E2CD; font-size: 30px">SHARE EVENTS</h5>
+    <p class="card-text">Keep everyone in-the-know by posting events on a shared calendar.</p>
+    <a href="{{url_for('events_add')}}" class="btn btn-warning">View</a>
+  </div>
+</div>
+</div>
+​<div class="col-4">
+<div class="card" style="width: 20rem; background-color: #FAF0F2">
+  <img src="https://media.millichronicle.com/2019/02/12122544/kids-and-chores.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title" style="color: #65E2CD; font-size: 30px">MANAGE TASKS</h5>
+    <p class="card-text">Maintain a tidy home by assigning & keeping track of chores with to-do lists.</p>
+    <a href="{{url_for('chores_add')}}" class="btn btn-warning">Assign</a>
+  </div>
+</div>
+</div>
 {% endblock %}
