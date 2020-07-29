@@ -25,15 +25,15 @@ h6{
     text-align: center;
     color: #CEC2FF;
     font-size: 20px;
-
+​
 }
-
+​
 .card-body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 1px;
     text-align: center;
-    color:white;
+    color:#CEC2FF;
 }
 .card-header {
     font-family: 'Poppins', sans-serif;
@@ -74,26 +74,29 @@ hr {
 .container {
    color:#CEC2FF;
 }
-
+​
 .containerStripe{
     background-color: #CEC2FF;
+    color: white;
+    text-align: center;
     width: 100%;
-   min-height: 30px;
-   margin-bottom: 25px;
-   padding: 5px 0;
-   line-height: 30px;
-  justify-content: center;
+    min-height: 30px;
+    margin-bottom: 25px;
+    padding: 5px 0;
+    line-height: 30px;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
 }
-
+​
 .btn btn-primary{
     background-color: #CEC2FF !important;
     width: 100%;
 }
-
+​
 .containerHome {
     background-color:white;
 }
-
+​
 .btn{
     background-color:#F6E27F !important;
      font-family: 'Poppins', sans-serif;
@@ -109,12 +112,12 @@ hr {
   display: table;
   clear: both;
 }
-
+​
 .input-mysize { 
     width: 500px;
     float: right;
 }
-
+​
 .mycustom-jumbotron {
   width: 100%;
   max-height: 200px;
