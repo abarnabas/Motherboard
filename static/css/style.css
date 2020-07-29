@@ -71,8 +71,19 @@ hr {
   width: 50%;
 }
 .container {
-    color: white;
+   color: white;
 }
+
+.containerStripe{
+    background-color: #CEC2FF;
+    width: 100%;
+   min-height: 30px;
+   margin-bottom: 25px;
+   padding: 5px 0;
+   line-height: 30px;
+  justify-content: center;
+}
+
 
 .btn btn-primary{
     background-color: #CEC2FF !important;
@@ -95,6 +106,6 @@ hr {
 
 .mycustom-jumbotron {
   width: 100%;
-  max-height: 170px;
-  margin: 18 auto
+  max-height: 200px;
+  margin: auto;
 }

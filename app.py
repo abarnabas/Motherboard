@@ -186,7 +186,7 @@ def chores_view():
     }
     return render_template('choresView.html', data=data)
 
-<<<<<<< HEAD
+
 @app.route('/photos')
 def photos_view():
     photos=[""]
@@ -194,7 +194,7 @@ def photos_view():
         "photos": photos
     }
     return render_template('photoView.html',data=data)
-=======
+
 @app.route('/chores/complete', methods=['GET','POST'])
 def chores_complete():
     if request.method == 'GET':
@@ -225,4 +225,4 @@ def chores_complete():
 #     'messages':mongo.db['messages'].find({})
 #     }
 #     return render_template('messageView.html')
->>>>>>> c138db9ec41115c7053ee77d902117b7291b0637
+
