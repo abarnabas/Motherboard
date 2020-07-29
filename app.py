@@ -214,17 +214,9 @@ def chores_complete():
         mongo.db['chores'].find_one_and_update(query, update)
         return redirect(url_for('chores_view'))
 
-# @app.route('/photos')
-# def photos_view():
-#     data = {
-#         "photos": photos
-#     }
-#     return render_template('photoView.html',data=data)
-
-# @app.route('/messageboard')
-# def message_view():
-#     data = {
-#     'messages':mongo.db['messages'].find({})
-#     }
-#     return render_template('messageView.html')
-
+@app.route(‘/messages’)
+def message_view():
+    data = {
+    ‘messages’:mongo.db[‘messages’].find({})
+    }
+    return render_template(‘messagesView.html’, data=data)
