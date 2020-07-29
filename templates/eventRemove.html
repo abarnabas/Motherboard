@@ -2,20 +2,22 @@
 {% block title %}
 {% endblock %}  
 {% block content %}
+<br>
+<img src =https://tricities.incredibletowns.com/wp-content/uploads/2019/09/events_calendar.jpg width = 70% class="center">
 <div class="container">
   <div class="col">
     <form method="POST" action="{{url_for('events_remove')}}">
       <div class="form-row">
         <div class="form-group col-6">
-          <label for="eventName">Event Name</label>
+          <h2 for="eventName" style="font-family: 'Poppins', sans-serif">Event Name</h2>
           <input type="text" class="form-control" name="eventName">
         </div>
         <div class="form-group col-6">
-          <label for="eventDate">Event Date</label>
+          <h2 for="eventDate" style="font-family: 'Poppins', sans-serif">Event Date</h2>
           <input type="date" class="form-control" name="eventDate">
         </div>
         <div class="form-group col-12">
-          <button type="submit" class="btn btn-warning btn-block" style="font-family: 'Poppins', sans-serif;" >Submit</button>
+          <button type="submit" class="btn btn-warning btn-block" style="font-family: 'Poppins', sans-serif;" > Submit   <i class="fa fa-calendar-times-o" aria-hidden="true"></i></button>
         </div>
       </div>
     </form>
