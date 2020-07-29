@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block title%}{% endblock %}
+{% block content%}
+<div class="container">
+  <div class="col">
+    <h1>Add a New Chore to Complete!</h1>
+    <form method="POST" action="{{url_for('chores_add')}}">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <h3 for="choreInputter">Assigned By</h3>
+          <input type="text" class="form-control" name="choreInputter">
+        </div>
+        <div class="form-group col-12">
+        <div class="form-group">
+    <label for="exampleFormControlSelect1">Chore Type</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="choreType">
+      <option>Bedroom</option>
+      <option>Kitchen</option>
+      <option>Bathroom</option>
+      <option>Meal</option>
+      <option>Outside</option>
+      <option>Miscellaneous</option>
+    </select>
+    <div class="form-row">
+        <div class="form-group col-6">
+          <h3 for="choreName">Chore Description</h3>
+          <input type="text" class="form-control" name="choreName">
+        </div>
+        <div class="form-group col-12">
+        <div class="form-group">
+  </div>
+  <div class="form-group col-12">
+          <button type="submit" class="btn btn-warning btn-block" style="font-family: 'Poppins', sans-serif;" >Submit</button>
+    </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -11,6 +11,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 import datetime
+from bson.objectid import ObjectId
+
 # -- Initialization section --
 app = Flask(__name__)
 app.jinja_env.globals['current_time'] = datetime.datetime.now()
@@ -35,13 +37,6 @@ def index():
     'events':events,
     }
     return render_template('index.html', data=data)
-@app.route('/view')
-def events_view():
-    events = mongo.db['events-list'].find({}) 
-    data = {
-    'events':events,
-    }
-    return render_template('eventsView.html', data=data)
 
 @app.route('/add', methods=['GET','POST'])
 def events_add():
@@ -55,11 +50,12 @@ def events_add():
         event = {
         'name':form['eventName'],
         'date':form['eventDate'],
-        'user':form['eventUser']
+        'user':form['eventUser'],
+        'eventDescription': form['eventDescription']
         }
         events = mongo.db['events-list']
         events.insert(event)
-        return redirect(url_for('events_view'))
+        return redirect(url_for('events_cal'))
     
 @app.route('/eventscal')
 def events_cal():
@@ -131,6 +127,7 @@ def users_view():
     }
     print(data)
     return render_template('userView.html', data=data)
+
 @app.route('/users/add', methods=['GET','POST'])
 def users_add():
     if request.method == 'GET':
@@ -145,8 +142,89 @@ def users_add():
             "userPhone": form["userPhone"],
             "userWork": form["userWork"],
             "userHobbies": form["userHobbies"]
-            
         }
         users = mongo.db['users']
         users.insert_one(user)
         return redirect(url_for('users_view'))
+
+@app.route('/chores/add', methods=['GET','POST'])
+def chores_add():
+    if request.method == 'GET':
+        data = {
+        }
+        return render_template('choreAdd.html', data=data)
+    else:
+        form = request.form
+        chore = {
+            "choreType": form["choreType"],
+            "choreName": form["choreName"],
+            "choreInputter": form["choreInputter"]
+            
+        }
+        chores = mongo.db['chores']
+        chores.insert_one(chore)
+        return redirect(url_for('chores_view'))
+
+@app.route('/chores')
+def chores_view():
+    #All Bedroom Chores
+    bedroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bedroom"}}).sort('choreType')
+    #All Kitchen Chores
+    kitchen_chores = mongo.db['chores'].find({"choreType": {'$regex':"Kitchen"}}).sort('choreType')
+    #All Bathroom Chores
+    bathroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bathroom"}}).sort('choreType')
+    #All Outside Chores
+    outside_chores = mongo.db['chores'].find({"choreType": {'$regex':"Outside"}}).sort('choreType')
+    #All Meal Chores
+    meal_chores = mongo.db['chores'].find({"choreType": {'$regex':"Meal"}}).sort('choreType')
+    #All Miscellaneous Chores
+    miscell_chores = mongo.db['chores'].find({"choreType": {'$regex':"Miscellaneous"}}).sort('choreType')
+    data = {
+    'bedroom_chores':bedroom_chores,
+    'kitchen_chores': kitchen_chores,
+    'outside_chores': outside_chores,
+    'meal_chores': meal_chores,
+    'miscell_chores': miscell_chores
+    }
+    return render_template('choresView.html', data=data)
+
+<<<<<<< HEAD
+@app.route('/photos')
+def photos_view():
+    photos=[""]
+    data = {
+        "photos": photos
+    }
+    return render_template('photoView.html',data=data)
+=======
+@app.route('/chores/complete', methods=['GET','POST'])
+def chores_complete():
+    if request.method == 'GET':
+        return redirect(url_for('chores_view'))
+    else:
+        form = request.form
+        choreid = form['choreid']
+        choreid = ObjectId(choreid) 
+        query = {
+            '_id':choreid
+        }
+        update = {
+            '$set': {'Completed':form.get('Completed',"")}
+        }
+        mongo.db['chores'].find_one_and_update(query, update)
+        return redirect(url_for('chores_view'))
+
+# @app.route('/photos')
+# def photos_view():
+#     data = {
+#         "photos": photos
+#     }
+#     return render_template('photoView.html',data=data)
+
+# @app.route('/messageboard')
+# def message_view():
+#     data = {
+#     'messages':mongo.db['messages'].find({})
+#     }
+#     return render_template('messageView.html')
+>>>>>>> c138db9ec41115c7053ee77d902117b7291b0637
