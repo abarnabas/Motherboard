@@ -10,7 +10,22 @@
   <p class="lead">
   </p>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+                <button type="button" href="{{url_for('auth_signup')}}" class="btn btn-secondary btn-outline-light btn-lg btn-block" style= "margin-left:37px; margin-bottom: 30px; width: 70%; background-color:#F6E27F">Sign Up</button>
+            </div>
+            <div class="col-4">
 
+                <button type="button" href="{{url_for('auth_login')}}" class="btn btn-secondary btn-outline-light btn-lg btn-block" style="margin-left:37px; margin-bottom: 30px; width: 70%; background-color:#F6E27F">Log In</button>
+            </div>
+            <div class="col-4">
+
+                <button type="button" href="{{url_for('auth_logout')}}" class="btn btn-secondary btn-outline-light btn-lg btn-block" style="margin-left:37px; margin-bottom: 30px; width: 70%; background-color:#F6E27F">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-4">

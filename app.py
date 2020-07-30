@@ -58,44 +58,45 @@ def events_add():
     
 @app.route('/eventscal')
 def events_cal():
+    user_query = {'userAccount', session.get('email', 'abcd')}
     #All Jan events
-    jan_events = mongo.db['events-list'].find({"date": {'$regex':"-01-"}}).sort('date')
+    jan_events = mongo.db['events-list'].find({"date": {'$regex':"-01-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Feb events
-    feb_events = mongo.db['events-list'].find({"date": {'$regex':"-02-"}}).sort('date') 
+    feb_events = mongo.db['events-list'].find({"date": {'$regex':"-02-"}, 'userAccount':session.get('email', 'abcd')}).sort('date') 
     #All Mar events
-    mar_events = mongo.db['events-list'].find({"date": {'$regex':"-03-"}}).sort('date')
+    mar_events = mongo.db['events-list'].find({"date": {'$regex':"-03-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Apr events
-    apr_events = mongo.db['events-list'].find({"date": {'$regex':"-04-"}}).sort('date')
+    apr_events = mongo.db['events-list'].find({"date": {'$regex':"-04-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All May events
-    may_events = mongo.db['events-list'].find({"date": {'$regex':"-05-"}}).sort('date')
+    may_events = mongo.db['events-list'].find({"date": {'$regex':"-05-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Jun events
-    jun_events = mongo.db['events-list'].find({"date": {'$regex':"-06-"}}).sort('date')
+    jun_events = mongo.db['events-list'].find({"date": {'$regex':"-06-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Jul events
-    jul_events = mongo.db['events-list'].find({"date": {'$regex':"-07-"}}).sort('date')
+    jul_events = mongo.db['events-list'].find({"date": {'$regex':"-07-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Aug events
-    aug_events = mongo.db['events-list'].find({"date": {'$regex':"-08-"}}).sort('date')
+    aug_events = mongo.db['events-list'].find({"date": {'$regex':"-08-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Sep events
-    sep_events = mongo.db['events-list'].find({"date": {'$regex':"-09-"}}).sort('date')
+    sep_events = mongo.db['events-list'].find({"date": {'$regex':"-09-"},'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Oct events
-    oct_events = mongo.db['events-list'].find({"date": {'$regex':"-10-"}}).sort('date')
+    oct_events = mongo.db['events-list'].find({"date": {'$regex':"-10-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #All Nov events
-    nov_events = mongo.db['events-list'].find({"date": {'$regex':"-11-"}}).sort('date') 
+    nov_events = mongo.db['events-list'].find({"date": {'$regex':"-11-"}, 'userAccount':session.get('email', 'abcd')}).sort('date') 
     #All Dec events
-    dec_events = mongo.db['events-list'].find({"date": {'$regex':"-12-"}}).sort('date')
+    dec_events = mongo.db['events-list'].find({"date": {'$regex':"-12-"}, 'userAccount':session.get('email', 'abcd')}).sort('date')
     #events = mongo.db['events-list'].find({}) 
     data = {
-    'jan_events':mongo.db['jan_events'].find({'userAccount': session['email']}),
-    'feb_events':mongo.db['feb_events'].find({'userAccount': session['email']}),
-    'mar_events':mongo.db['mar_events'].find({'userAccount': session['email']}),
-    'apr_events':mongo.db['apr_events'].find({'userAccount': session['email']}),
-    'may_events':mongo.db['may_events'].find({'userAccount': session['email']}),
-    'jun_events':mongo.db['jun_events'].find({'userAccount': session['email']}),
-    'jul_events':mongo.db['jul_events'].find({'userAccount': session['email']}),
-    'aug_events':mongo.db['aug_events'].find({'userAccount': session['email']}),
-    'sep_events':mongo.db['sep_events'].find({'userAccount': session['email']}),
-    'oct_events':mongo.db['oct_events'].find({'userAccount': session['email']}),
-    'nov_events':mongo.db['nov_events'].find({'userAccount': session['email']}),
-    'dec_events':mongo.db['dec_events'].find({'userAccount': session['email']})
+    'jan_events':jan_events,
+    'feb_events':feb_events, 
+    'mar_events':mar_events,
+    'apr_events':apr_events,
+    'may_events':may_events,
+    'jun_events':jun_events,
+    'jul_events':jul_events,
+    'aug_events':aug_events,
+    'sep_events':sep_events,
+    'oct_events':oct_events,
+    'nov_events':nov_events,
+    'dec_events':dec_events
     }
     print(data)
     return render_template('familycalendar.html', data=data)
@@ -122,7 +123,6 @@ def users_view():
     data = {
     'users':mongo.db['users'].find({'userAccount': session['email']})
     }
-    print(data)
     return render_template('userView.html', data=data)
 
 @app.route('/users/add', methods=['GET','POST'])
@@ -165,24 +165,25 @@ def chores_add():
 
 @app.route('/chores')
 def chores_view():
+    user_query = {'userAccount', session.get('email', 'abcd')}
     #All Bedroom Chores
-    bedroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bedroom"}}).sort('choreType')
+    bedroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bedroom"}, 'userAccount':session.get('email', 'abcd')}).sort('choreType')
     #All Kitchen Chores
-    kitchen_chores = mongo.db['chores'].find({"choreType": {'$regex':"Kitchen"}}).sort('choreType')
+    kitchen_chores = mongo.db['chores'].find({"choreType": {'$regex':"Kitchen"}, 'userAccount':session.get('email', 'abcd')}).sort('choreType')
     #All Bathroom Chores
-    bathroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bathroom"}}).sort('choreType')
+    bathroom_chores = mongo.db['chores'].find({"choreType": {'$regex':"Bathroom"}, 'userAccount':session.get('email', 'abcd')}).sort('choreType')
     #All Outside Chores
-    outside_chores = mongo.db['chores'].find({"choreType": {'$regex':"Outside"}}).sort('choreType')
+    outside_chores = mongo.db['chores'].find({"choreType": {'$regex':"Outside"}, 'userAccount':session.get('email', 'abcd')}).sort('choreType')
     #All Meal Chores
-    meal_chores = mongo.db['chores'].find({"choreType": {'$regex':"Meal"}}).sort('choreType')
+    meal_chores = mongo.db['chores'].find({"choreType": {'$regex':"Meal"}, 'userAccount':session.get('email', 'abcd')}).sort('choreType')
     #All Miscellaneous Chores
-    miscell_chores = mongo.db['chores'].find({"choreType": {'$regex':"Miscellaneous"}}).sort('choreType')
+    miscell_chores = mongo.db['chores'].find({"choreType": {'$regex':"Miscellaneous"}, 'userAccount':session.get('email', 'abcd')}).sort('choreType')
     data = {
-    'bedroom_chores':mongo.db['bedroom_chores'].find({'userAccount': session['email']}),
-    'kitchen_chores':mongo.db['kitchen_chores'].find({'userAccount': session['email']}),
-    'outside_chores':mongo.db['outside_chores'].find({'userAccount': session['email']}),
-    'meal_chores':mongo.db['meal_chores'].find({'userAccount': session['email']}),
-    'miscell_chores':mongo.db['miscell_chores'].find({'userAccount': session['email']}),
+    'bedroom_chores':bedroom_chores,
+    'kitchen_chores':kitchen_chores,
+    'outside_chores':outside_chores,
+    'meal_chores':meal_chores,
+    'miscell_chores':miscell_chores
     }
     return render_template('choresView.html', data=data)
 
@@ -215,7 +216,7 @@ def chores_complete():
 @app.route('/messages')
 def message_view():
     data = {
-    'messages':mongo.db['messages'].find({})
+    'messages':mongo.db['messages'].find({'userAccount': session['email']})
     }
     return render_template('messageView.html', data=data)
 
@@ -231,6 +232,7 @@ def message_add():
         message = {
             "userName": form["userName"],
             "message": form["message"],
+            'userAccount': session['email']
         }
         messages = mongo.db['messages']
         messages.insert_one(message)
@@ -285,4 +287,4 @@ def auth_login():
 @app.route('/auth/logout')
 def auth_logout():
     session.clear()
-    return redirect(url_for('index'))
+    return render_template('auth/logout.html')
