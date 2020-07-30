@@ -7,11 +7,11 @@
   <div class="col" width = 100%>
     <form method="POST" action="{{url_for('message_add')}}">
       <div class="form-row">
-        <div class="form-group col-6">
+        <div class="form-group col-12">
           <h3 for="userName" style="font-family: 'Poppins', sans-serif;">Your Name</h3>
           <input type="text" class="form-control" name="userName">
         </div>
-        <div class="form-group col-6">
+        <div class="form-group col-12">
           <h3 for="message" style="font-family: 'Poppins', sans-serif;">Message</h3>
           <input type="text" class="form-control" name="message">
         </div>
@@ -20,4 +20,6 @@
     </form>
   </div>
 </div>
+
+
 {% endblock %}
