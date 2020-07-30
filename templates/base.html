@@ -148,12 +148,13 @@ hr {
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
     <link href=<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap"
 		rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css', q=current_time) }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css', q=current_time) }}" />
 	<title>{% block title%}{% endblock %}</title>
 </head>
 
 <body>
     {{_navbar.navbar()}}
+    {{session['email']}}
 
 	{% block content%}
 
