@@ -3,17 +3,12 @@
 {% block title%}{% endblock %}
 <a href="{{url_for('events_cal')}}" class="btn btn-dark btn-lg btn-block">View Events</a>
 {% block content%}
-<div class="jumbotron mycustom-jumbotron mx-auto pt-0" style="background-color: #65E2CD;">
+<div class="jumbotron mycustom-jumbotron mx-auto pt-0" style="background-color: #65E2CD; height:210px">
   <img src= "{{ url_for('static', filename='images/MotherBoardNEW.jpg') }}" class="center" style="width:70px;height:70px;" >
   <h1 class="display-4">MotherBoard</h1>
   <p class="lead">Welcome to your family's very own digital hub </p> 
   <p class="lead">
   </p>
-</div>
-<div class="containerStripe" style= "max-height:80px, color: #CEC2FF";> 
-  <h6> 
-      
-  </h6>
 </div>
 
 <div class="container">
@@ -22,9 +17,9 @@
 <div class="card" style="width: 20rem; background-color: #FAF0F2";>
   <img src="https://cf.ltkcdn.net/family/images/orig/200821-2121x1414-family.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title" style="color: #65E2CD; font-size: 30px;">GET STARTED</h5>
+    <h5 class="card-title" style="color: #65E2CD; font-size: 30px; font-family: Poppins">GET STARTED</h5>
     <p class="card-text">Create and join your family's network today by setting up user profiles.</p>
-    <a href="{{url_for('users_add')}}" class="btn btn-warning">Sign Up</a>
+    <a href="{{url_for('users_add')}}" class="btn btn-warning" style="background-color:#F6E27F">Sign Up</a>
   </div>
 </div>
 </div>
@@ -34,7 +29,7 @@
   <div class="card-body">
     <h5 class="card-title" style="color: #65E2CD; font-size: 30px">SHARE EVENTS</h5>
     <p class="card-text">Keep everyone in-the-know by posting events on a shared calendar.</p>
-    <a href="{{url_for('events_add')}}" class="btn btn-warning">View</a>
+    <a href="{{url_for('events_add')}}" class="btn btn-warning" style="background-color:#F6E27F">View</a>
   </div>
 </div>
 </div>
@@ -44,8 +39,25 @@
   <div class="card-body">
     <h5 class="card-title" style="color: #65E2CD; font-size: 30px">MANAGE TASKS</h5>
     <p class="card-text">Maintain a tidy home by assigning & tracking chores with to-do lists.</p>
-    <a href="{{url_for('chores_add')}}" class="btn btn-warning">Assign</a>
+    <a href="{{url_for('chores_add')}}" class="btn btn-warning" style="background-color:#F6E27F">Assign</a>
   </div>
 </div>
 </div>
+</div>
+</div>
+
+<div class="container-fluid" style= "background-color: #CEC2FF; margin-top: 20px; min-height: 350px">  
+      
+      <h1 style= "color:#FAF0F2; margin-top: 20px">ABOUT </h1>
+      <h5 style= "color:white; text-align: center; "> Hello! Thank you so much for visiting MotherBoard. In 2020, MotherBoard was founded by incoming college freshmen Anjali Barnabas (Barnard College) and Alyssa Kattan (Johns Hopkins University). After tolerating years of familial chaos surrounding a lack of streamlined communication between relatives, Alyssa and Anjali decided it was time for a solution that they could share with others. MotherBoard aims to centralize and simplify information for families, by providing a private online space in which effective communication can take place. Our goal is to help you keep an organized home with just a few clicks. With MotherBoard, you can sync schedules, assign chores, keep track of contact info, post messages, share photos, and more.</h5>
+      <h4 style= "color:#FAF0F2;text-align: center"> Create your MotherBoard today! </h4>
+      
+      <h6 style= "color: #F6E27F; text-align: center; margin-top: 15px"> CONNECT WITH US:</h6>
+      <h6 style= "color: #F6E27F;text-align: center"><i class="fa fa-instagram" aria-hidden="true"></i> @MotherBoard  |  <i class="fa fa-twitter" aria-hidden="true"></i> @WeAreMotherBoard  |  <i class="fa fa-facebook-square" aria-hidden="true"></i> @MotherBoard  |  <i class="fa fa-pinterest" aria-hidden="true"></i> @Mother_Boards</h6>
+
+     <h6 style= "color: white; text-align: center; margin-top: 20px; margin-bottom: 20px"> Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2020 MotherBoard. All rights reserved.</h6>
+</div>
+
+
+
 {% endblock %}
