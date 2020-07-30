@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% block title%}{% endblock %}
 {% block content%}
-<img src ="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80" width = 70%>
+<img src= "{{ url_for('static', filename='images/yes.jpeg') }}" width= 100% >
 <p>
 <div class="container">
   <div class="col" width = 100%>
@@ -15,7 +15,7 @@
           <h3 for="message" style="font-family: 'Poppins', sans-serif;">Message</h3>
           <input type="text" class="form-control" name="message">
         </div>
-         <button type="submit" class="btn btn-warning btn-block">Submit</button>
+         <button type="submit" class="btn btn-warning btn-block" style="background-color:#F6E27F"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Submit</button>
       </div>
     </form>
   </div>

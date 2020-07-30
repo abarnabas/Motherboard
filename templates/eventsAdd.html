@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% block title%}{% endblock %}
 {% block content%}
-<img src =https://d39eo07iavn1vt.cloudfront.net/Live/InstantPrint/Blog/Old+Images/4594/blog-post-header-event-planner.jpg width = 100%>
+<img src ="https://d39eo07iavn1vt.cloudfront.net/Live/InstantPrint/Blog/Old+Images/4594/blog-post-header-event-planner.jpg" width = 100%>
 <p>
 <div class="container">
   <div class="col" width = 100%>
@@ -9,11 +9,11 @@
       <div class="form-row">
         <div class="form-group col-6">
           <h3 for="eventName" style="font-family: 'Poppins', sans-serif;">Event Name</h3>
-          <input type="text" class="form-control" name="eventName">
+          <input type="text" class="form-control font-italic" name="eventName" placeholder="Mom's birthday, Team dinner, etc." color= "#F5F4F5">
         </div>
         <div class="form-group col-6">
           <h3 for="eventDate" style="font-family: 'Poppins', sans-serif;">Event Date</h3>
-          <input type="date" class="form-control" name="eventDate">
+          <input type="date" class="form-control font-italic" name="eventDate">
         </div>
          <div class="form-group col-6">
           <h3 for="eventDescription" style="font-family: 'Poppins', sans-serif;">Event Description</h3>
@@ -24,7 +24,7 @@
           <input type="user" class="form-control" name="eventUser">
         </div>
         <div class="form-group col-12">
-          <button type="submit" class="btn btn-warning btn-block" style="font-family: 'Poppins', sans-serif;" >Submit</button>
+          <button type="submit" class="btn btn-warning btn-block" style="font-family: 'Poppins', sans-serif; background-color:#F6E27F">Submit <i class="fa fa-calendar-check-o" aria-hidden="true"></i></button>
         </div>
       </div>
     </form>

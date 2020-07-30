@@ -1,3 +1,6 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
 h1 {
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -123,4 +126,8 @@ hr {
   width: 100%;
   max-height: 200px;
   margin: auto;
+}
+
+.containerAbout {
+    background-color:#FFEBEE;
 }
