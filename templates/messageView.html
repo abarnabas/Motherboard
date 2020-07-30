@@ -2,20 +2,24 @@
 {% block title%}{% endblock %}
 {% block content%}
 <div class="container">
-<h1 style="font-family: 'Poppins', sans-serif;"> Messages </h1>
-  <div class="row">
-   {% for message in data.messages %}
-    <div class="col-lg-3 col-md-4 col-sm-6">
-      <div class="card">
-           <div class="card-header">
-             {{message.userName}}
-            </div>
-            <div class="card-body">
-             {{message.message}} <br>
-            <h6 class="card-title">Date Added: {{chore._id.generation_time.strftime("%Y-%m-%d %H")}}</h6>
+	<h1 style="font-family: 'Poppins', sans-serif;"> Messages </h1>
+	<div class="row">
+		{% for message in data.messages %}
+        <div class="card w-50">
+		<div class="card text-center">
+			<div class="card-header">
+				{{message.userName}}
+			</div>
+			<div class="card-body">
+				<h5 class="card-title" style = "color: #CEC2FF"> {{message.message}}</h5>
+			</div>
+			<div class="card-footer text-muted">
+				{{message._id.generation_time.strftime("%x   %X")}}
+			</div>
+		</div>
         </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
+        <hr></hr>
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}
