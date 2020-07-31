@@ -281,7 +281,7 @@ def auth_login():
             else:
                 return "The username or password is incorrect."
         else: 
-            return redirect(url_for('auth_signup'))
+            return redirect(url_for('index'))
 
 
 @app.route('/auth/logout')
